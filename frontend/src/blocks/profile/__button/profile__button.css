@@ -1,0 +1,23 @@
+.profile__button{
+    min-width: 24px;
+    min-height: 24px;
+    background-image: url(../../../image/EditButton.svg);
+    border: 1px solid #FFFFFF;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 0;
+    margin-left: 18px;
+    cursor: pointer;
+}
+
+.profile__button:hover{
+    opacity: 0.6;
+}
+
+@media screen and (max-width: 320px) {
+    .profile__button {
+        min-width: 18px;
+        min-height: 18px;
+    }
+  }

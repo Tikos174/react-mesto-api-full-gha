@@ -1,0 +1,16 @@
+.element__delite{
+    background-image: url(../../../image/Vectordel.svg);
+    background-repeat: no-repeat;
+    min-width: 22px;
+    min-height: 19px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.element__delite:hover{
+    opacity: 0.5;
+}

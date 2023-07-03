@@ -1,0 +1,9 @@
+.element__list{
+    object-fit: contain;
+    background: #FFFFFF;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}

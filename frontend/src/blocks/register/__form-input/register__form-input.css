@@ -1,0 +1,4 @@
+.register__form-input{
+    display: flex;
+    flex-direction: column;
+}

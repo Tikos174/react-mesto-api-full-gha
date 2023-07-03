@@ -1,0 +1,14 @@
+.element__image{
+    min-width: 282px;
+    max-height: 282px;
+    object-fit: cover;
+    cursor: pointer;
+    aspect-ratio: 1 / 1;
+}
+
+@media screen and (max-width: 600px) {
+    .element__image{
+        max-width: 100%;
+        max-height: none;
+    }
+  }

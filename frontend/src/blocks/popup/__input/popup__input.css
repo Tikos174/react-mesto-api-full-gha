@@ -1,0 +1,13 @@
+.popup__input {
+  min-width: 358px;
+  min-height: 27px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 520px) {
+  .popup__input {
+    min-width: 238px;
+    margin-bottom: 27px;
+  }
+}

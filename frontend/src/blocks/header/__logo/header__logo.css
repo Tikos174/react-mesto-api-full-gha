@@ -1,0 +1,18 @@
+.header__logo {
+  background-image: url(../../../image/Vectorlogo.svg);
+  min-height: 33px;
+  min-width: 142px;
+  background-repeat: no-repeat;
+  margin: 45px 0 40px 0;
+}
+
+@media screen and (max-width: 320px) {
+  .header__logo {
+    min-width: 104px;
+    min-height: 25px;
+    display: flex;
+    flex-direction: column;
+    background-size: contain;
+    margin: 27px 0 32px 25px;
+  }
+}

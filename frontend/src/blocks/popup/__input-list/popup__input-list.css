@@ -1,0 +1,6 @@
+.popup__input-list{
+    margin: 9px 0 14px 0;
+    display: flex;
+    flex-direction: column;
+    max-height: 39px;
+}

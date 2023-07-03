@@ -1,0 +1,14 @@
+.popup__profil {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    border-radius: 10px;
+    margin: 0;
+}
+
+@media screen and (max-width: 400px) {
+  .popup__profil {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+}
