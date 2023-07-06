@@ -45,7 +45,6 @@ function Main(props) {
             onCardClick={props.onImage}
             onCardLike={props.onCardLike}
             onCardDelete={props.onCardDelete}
-
              />
           ))}
         </ul>

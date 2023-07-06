@@ -31,6 +31,8 @@ function App() {
       .getInitialCards()
       .then((data) => {
         setCards(data);
+        console.log(data, 
+          123)
       })
       .catch((err) => console.log(err));
   }, []);
@@ -185,8 +187,8 @@ function App() {
       .then((user) => {
         handleLogin(user);
         setLoggenIn(user);
-        navigate("/main");
-        setemailData(user.data.email);
+        // navigate("/main");
+        setemailData(user.email);
       })
       .catch((err) => console.log(err));
   }, []);

@@ -1,10 +1,10 @@
+const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const { celebrate, Joi } = require('celebrate');
 const { errors } = require('celebrate');
-const cors = require('cors');
-// const path = require('path');
+const path = require('path');
 const userRouter = require('./routes/users');
 const cardsRoutes = require('./routes/cards');
 const { login, createUser } = require('./controllers/users');
@@ -21,14 +21,15 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
   useNewUrlParser: true,
 });
 
-app.use(cookieParser());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 app.use(cors({
   credentials: true,
   methods: ['GET', 'PUT', 'POST', 'DELETE', 'PATCH'],
-  origin: ['http://api.mesto.yandex.students.nomoreparties.sbs', 'http://mesto.yandex.students.nomoreparties.sbs', 'http://localhost:3000', 'http://localhost:3001'],
+  origin: ['http://localhost:3000'],
 }));
+
+app.use(cookieParser());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.post('/signin', celebrate({
   body: Joi.object().keys({
@@ -54,10 +55,10 @@ app.use(auth, (req, res, next) => {
   next(new NotFound('Запрашиваемый ресурс не найден'));
 });
 
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(errors());
 
 app.use(errorHandler);
 
-app.listen(80);
+app.listen(3001);
