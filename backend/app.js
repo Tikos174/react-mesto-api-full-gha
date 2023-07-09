@@ -1,9 +1,9 @@
-const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const { celebrate, Joi } = require('celebrate');
 const { errors } = require('celebrate');
+const cors = require('cors');
 const path = require('path');
 const userRouter = require('./routes/users');
 const cardsRoutes = require('./routes/cards');
@@ -21,15 +21,22 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
   useNewUrlParser: true,
 });
 
-app.use(cors({
-  credentials: true,
-  methods: ['GET', 'PUT', 'POST', 'DELETE', 'PATCH'],
-  origin: ['http://localhost:3000'],
-}));
-
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(cors({
+  credentials: true,
+  methods: ['GET', 'PUT', 'POST', 'DELETE', 'PATCH'],
+  origin: 'https://mesto.yandex.students.nomoreparties.sbs',
+  // origin: 'http://localhost:3000',
+}));
+
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 
 app.post('/signin', celebrate({
   body: Joi.object().keys({
@@ -61,4 +68,5 @@ app.use(errors());
 
 app.use(errorHandler);
 
-app.listen(3001);
+app.listen(3000);
+// app.listen(3002);

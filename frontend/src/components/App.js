@@ -31,15 +31,13 @@ function App() {
       .getInitialCards()
       .then((data) => {
         setCards(data);
-        console.log(data, 
-          123)
       })
       .catch((err) => console.log(err));
   }, []);
 
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((id) => id === currentUser._id);
     if (!isLiked) {
       api
         .addLike(card._id, !isLiked)
@@ -187,10 +185,11 @@ function App() {
       .then((user) => {
         handleLogin(user);
         setLoggenIn(user);
-        // navigate("/main");
+        navigate("/main");
         setemailData(user.email);
       })
       .catch((err) => console.log(err));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
