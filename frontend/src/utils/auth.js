@@ -1,5 +1,5 @@
-const URL = "https://api.mesto.yandex.students.nomoreparties.sbs";
-// const URL = "http://localhost:3001";
+// const URL = "https://api.mesto.yandex.students.nomoreparties.sbs";
+const URL = "http://localhost:3001";
 
 export function checkResponse(res) {
   if (res.ok) {

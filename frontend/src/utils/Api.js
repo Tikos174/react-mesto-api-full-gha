@@ -82,8 +82,8 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'https://api.mesto.yandex.students.nomoreparties.sbs',
-  // baseUrl: "http://localhost:3001",
+  // baseUrl: 'https://api.mesto.yandex.students.nomoreparties.sbs',
+  baseUrl: "http://localhost:3001",
   credentials: "include",
   headers: {
     "Content-Type": "application/json",

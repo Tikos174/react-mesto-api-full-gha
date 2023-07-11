@@ -14,7 +14,7 @@ const postCards = (req, res, next) => {
   const owner = req.user._id;
 
   Card.create({ name, link, owner })
-    .then((cards) => res.status(201).send({ data: cards }))
+    .then((cards) => res.status(201).send(cards))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new IncorrectRequest({ message: 'Переданы некорректные данные при создании карточки' }));
