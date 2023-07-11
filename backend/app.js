@@ -16,8 +16,8 @@ const errorHandler = require('./middlewares/errorHandler');
 const avatar = /^https?:\/\/[www.]?[\w\-._~:/?#[\]@!$&'()*+,;=%]+\.[\w\-._~:/?#[\]@!$&'()*+,;=%]+#?$/;
 const password = /^[a-zA-z0-9]{8,}$/;
 
-// const { PORT = 3000 } = process.env;
-const { PORT = 3001 } = process.env;
+const { PORT = 3000 } = process.env;
+// const { PORT = 3001 } = process.env;
 const app = express(process.env.JWT_SECRET);
 
 // const app = express();
@@ -33,8 +33,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors({
   credentials: true,
   methods: ['GET', 'PUT', 'POST', 'DELETE', 'PATCH'],
-  // origin: 'https://mesto.yandex.students.nomoreparties.sbs',
-  origin: 'http://localhost:3000',
+  origin: 'https://mesto.yandex.students.nomoreparties.sbs',
+  // origin: 'http://localhost:3000',
 }));
 
 app.get('/crash-test', () => {
