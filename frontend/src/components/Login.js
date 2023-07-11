@@ -36,7 +36,7 @@ function Login({ handleLogin, handelLoginCheck }) {
 
   return (
     <div className="register">
-      <h2 className="register__text">QQQQQQQQQQQQQQВход</h2>
+      <h2 className="register__text">Вход</h2>
       <form className="register__form-input" onSubmit={handleSubmit}>
         <input
           className="register__input-email"

@@ -1,3 +1,4 @@
+const token = localStorage.getItem("token");
 
 class Api {
   constructor(options) {
@@ -82,11 +83,11 @@ class Api {
 
 const api = new Api({
   baseUrl: 'https://api.mesto.yandex.students.nomoreparties.sbs',
-  // baseUrl: "http://localhost:3002",
+  // baseUrl: "http://localhost:3001",
   credentials: "include",
   headers: {
     "Content-Type": "application/json",
-    Authorization: '',
+    Authorization: `Bearer ${token}`,
   },
 });
 

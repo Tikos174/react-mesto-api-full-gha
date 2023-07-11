@@ -9,8 +9,8 @@
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 158.160.29.172
 
-Frontend https://...
+Frontend https://mesto.yandex.students.nomoreparties.sbs
 
-Backend https://...
+Backend https://api.mesto.yandex.students.nomoreparties.sbs

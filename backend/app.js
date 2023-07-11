@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
@@ -15,7 +16,10 @@ const errorHandler = require('./middlewares/errorHandler');
 const avatar = /^https?:\/\/[www.]?[\w\-._~:/?#[\]@!$&'()*+,;=%]+\.[\w\-._~:/?#[\]@!$&'()*+,;=%]+#?$/;
 const password = /^[a-zA-z0-9]{8,}$/;
 
-const app = express();
+const { PORT = 3000 } = process.env;
+const app = express(process.env.JWT_SECRET);
+
+// const app = express();
 
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
   useNewUrlParser: true,
@@ -68,5 +72,4 @@ app.use(errors());
 
 app.use(errorHandler);
 
-app.listen(3000);
-// app.listen(3002);
+app.listen(PORT);
