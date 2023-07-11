@@ -30,7 +30,6 @@ app.use(requestLog);
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(errorLog);
 
 app.use(cors({
   credentials: true,
@@ -71,6 +70,7 @@ app.use(auth, (req, res, next) => {
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(errorLog);
 app.use(errors());
 
 app.use(errorHandler);
