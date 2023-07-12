@@ -19,8 +19,31 @@ import * as auth from "../utils/auth";
 function App() {
   const [currentUser, setCurrentUser] = React.useState({});
   const [cards, setCards] = React.useState([]);
+  const [loggenIn, setLoggenIn] = React.useState(false);
+  const [emailData, setemailData] = React.useState('');
+
+  //Попап регистрации и логина
+  const [isRegistenDone, setIsRegistenDone] = React.useState(false);
+  const [isSuccess, setIsSuccess] = React.useState(false);
+
+  //Попап добавление карточки
+  const [isAddPopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
+
+  //Попап профиля
+  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
+
+  //Попап аватара
+  const [isAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
+
+
+  //Попап картинки карточки
+  const [isImagePopupOpen, setIsImagePopupOpen] = React.useState(false);
+  const [selectedCard, setSelectedCard] = React.useState({})
+
+  const navigate = useNavigate();
 
   React.useEffect(() => {
+    if (loggenIn) {
     api
       .getinfoProfil()
       .then((data) => {
@@ -33,7 +56,8 @@ function App() {
         setCards(data);
       })
       .catch((err) => console.log(err));
-  }, []);
+    }
+  }, [loggenIn]);
 
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
@@ -59,10 +83,6 @@ function App() {
     }
   }
 
-  //Попап регистрации и логина
-  const [isRegistenDone, setIsRegistenDone] = React.useState(false);
-  const [isSuccess, setIsSuccess] = React.useState(false);
-
   function handelRegisterCheck() {
     setIsSuccess(true);
     setIsRegistenDone(true);
@@ -79,14 +99,11 @@ function App() {
   }
 
   //Попап добавление карточки
-  const [isAddPopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
   function handleAddPlaceClick() {
     setIsAddPlacePopupOpen(!isAddPopupOpen);
   }
 
   //Попап профиля
-  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
-    React.useState(false);
   function handleEditProfileClick() {
     setIsEditProfilePopupOpen(!isEditProfilePopupOpen);
   }
@@ -99,14 +116,9 @@ function App() {
   // }
 
   //Попап аватара
-  const [isAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
   function handleEditAvatarClick() {
     setIsEditAvatarPopupOpen(!isAvatarPopupOpen);
-  }
-
-  //Попап картинки карточки
-  const [isImagePopupOpen, setIsImagePopupOpen] = React.useState(false);
-  const [selectedCard, setSelectedCard] = React.useState({});
+  };
 
   function handleCardClick(card) {
     setIsImagePopupOpen(!isImagePopupOpen);
@@ -162,9 +174,6 @@ function App() {
       .catch((err) => console.log(err));
   }
 
-  const [loggenIn, setLoggenIn] = React.useState(false);
-  const [emailData, setemailData] = React.useState('');
-
   function handleLogin(email) {
     setLoggenIn(true);
     setemailData(email)
@@ -175,8 +184,6 @@ function App() {
     setLoggenIn(false);
     navigate("/login");
   }
-
-  const navigate = useNavigate();
 
   React.useEffect(() => {
     const token = localStorage.getItem("token");
